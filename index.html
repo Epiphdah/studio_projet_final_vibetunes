@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff2600">
+    <title>VibeTunes - Premium Music Experience</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.svg">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body data-theme="dark">
+    <audio id="audio-el" preload="metadata"></audio>
+
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-wave-square"></i>
+                </div>
+                <h1 class="logo-text">Vibe<span>Tunes</span></h1>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <h3 class="nav-title">MENU</h3>
+                    <ul>
+                        <li class="active"><a href="#"><i class="fas fa-home"></i> <span>Accueil</span></a></li>
+                        <li><a href="#"><i class="fas fa-compass"></i> <span>Découvrir</span></a></li>
+                        <li><a href="#"><i class="fas fa-music"></i> <span>Albums</span></a></li>
+                        <li><a href="#"><i class="fas fa-microphone-alt"></i> <span>Artistes</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-title">BIBLIOTHÈQUE</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-history"></i> <span>Récents</span></a></li>
+                        <li><a href="#"><i class="fas fa-heart"></i> <span>Favoris</span></a></li>
+                        <li><a href="#"><i class="fas fa-list"></i> <span>Playlists</span></a></li>
+                        <li><a href="#"><i class="fas fa-podcast"></i> <span>Podcasts</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button type="button" class="theme-cycle" id="theme-toggle" aria-label="Basculer le thème affiché">
+                    <span class="theme-cycle__icon-wrap" aria-hidden="true">
+                        <i class="fas fa-moon" id="theme-toggle-icon"></i>
+                    </span>
+                    <span class="theme-cycle__meta">
+                        <span class="theme-cycle__title" id="theme-toggle-label">Sombre</span>
+                        <span class="theme-cycle__sub">Premium · 3 ambiances</span>
+                    </span>
+                    <span class="theme-cycle__rail-wrap" aria-hidden="true">
+                        <span class="theme-cycle__rail">
+                            <span class="theme-cycle__groove"><i></i><i></i><i></i></span>
+                            <span class="theme-cycle__thumb"></span>
+                        </span>
+                    </span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-wrap">
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="search" id="search-input" placeholder="Rechercher sur Deezer…" autocomplete="off" spellcheck="false">
+                        </div>
+                        <div class="search-dropdown" id="search-dropdown" role="listbox" aria-label="Résultats"></div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="far fa-bell"></i>
+                        <span class="badge"></span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://i.pravatar.cc/150?u=vibetunes" alt="User Profile" class="avatar">
+                        <span class="username">Alex Johnson</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <section class="hero-section" id="hero-section">
+                <div class="hero-content">
+                    <span class="tag">À LA UNE</span>
+                    <h2 class="hero-title">Chargement…</h2>
+                    <p class="hero-artist">Deezer</p>
+                    <div class="hero-actions">
+                        <button type="button" class="btn btn-primary"><i class="fas fa-play"></i> Écouter maintenant</button>
+                        <button type="button" class="btn btn-outline"><i class="fas fa-plus"></i> Ajouter à la file</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="glow-effect"></div>
+                    <img src="https://e-cdns-images.dzcdn.net/images/cover/250x250-000000-80-0-0.jpg" alt="">
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Playlists Tendances</h2>
+                    <span class="see-all see-all--static">Deezer Chart</span>
+                </div>
+                <div class="card-grid" id="playlists-grid"></div>
+            </section>
+
+            <div class="content-split">
+                <section class="section top-tracks">
+                    <div class="section-header">
+                        <h2 class="section-title">Top Titres</h2>
+                        <span class="see-all see-all--static">Chart monde</span>
+                    </div>
+                    <div class="track-list" id="top-tracks-list"></div>
+                </section>
+
+                <section class="section recently-played">
+                    <div class="section-header">
+                        <h2 class="section-title">Écoutés récemment</h2>
+                    </div>
+                    <div class="recent-grid" id="recent-grid"></div>
+                </section>
+            </div>
+        </main>
+
+        <aside class="queue-panel" id="queue-panel" aria-hidden="true">
+            <div class="queue-panel-head">
+                <h3>File d’attente</h3>
+                <button type="button" class="queue-close" id="queue-close" aria-label="Fermer"><i class="fas fa-times"></i></button>
+            </div>
+            <ul class="queue-list" id="queue-list"></ul>
+        </aside>
+
+        <footer class="footer-player" id="footer-player">
+            <div class="player-track-info">
+                <img src="https://e-cdns-images.dzcdn.net/images/cover/250x250-000000-80-0-0.jpg" alt="" class="current-track-img">
+                <div class="current-track-details">
+                    <h4 id="current-title">—</h4>
+                    <p id="current-artist">—</p>
+                </div>
+                <button type="button" class="like-btn" aria-label="Favori"><i class="far fa-heart"></i></button>
+            </div>
+
+            <div class="player-controls-container">
+                <div class="player-buttons">
+                    <button type="button" class="control-btn" id="shuffle" title="Aléatoire"><i class="fas fa-random"></i></button>
+                    <button type="button" class="control-btn" id="prev" title="Précédent"><i class="fas fa-step-backward"></i></button>
+                    <button type="button" class="control-btn play-btn" id="play-pause" title="Lecture / Pause"><i class="fas fa-play"></i></button>
+                    <button type="button" class="control-btn" id="next" title="Suivant"><i class="fas fa-step-forward"></i></button>
+                    <button type="button" class="control-btn" id="repeat" title="Répétition"><i class="fas fa-redo"></i></button>
+                </div>
+                <div class="progress-container">
+                    <span class="time current-time">0:00</span>
+                    <div class="progress-bar" id="progress-bar" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                        <div class="progress-fill" style="width: 0%;"></div>
+                        <div class="progress-knob"></div>
+                    </div>
+                    <span class="time total-time">0:00</span>
+                </div>
+            </div>
+
+            <div class="player-extra-controls">
+                <button type="button" class="extra-btn" id="queue-toggle" title="File d’attente"><i class="fas fa-list-ul"></i></button>
+                <button type="button" class="extra-btn" aria-hidden="true" tabindex="-1"><i class="fas fa-desktop"></i></button>
+                <div class="volume-container">
+                    <i class="fas fa-volume-up" id="volume-icon"></i>
+                    <div class="volume-bar" id="volume-bar">
+                        <div class="volume-fill" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <button type="button" class="extra-btn" aria-hidden="true" tabindex="-1"><i class="fas fa-expand-alt"></i></button>
+            </div>
+        </footer>
+
+        <nav class="mobile-nav">
+            <a href="#" class="active"><i class="fas fa-home"></i><span>Accueil</span></a>
+            <a href="#"><i class="fas fa-search"></i><span>Recherche</span></a>
+            <a href="#"><i class="fas fa-list"></i><span>Bibliothèque</span></a>
+            <a href="#"><i class="fas fa-user"></i><span>Profil</span></a>
+        </nav>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

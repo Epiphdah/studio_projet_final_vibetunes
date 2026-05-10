@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="VibeTunes">
+  <defs>
+    <linearGradient id="vt-accent" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff2600"/>
+      <stop offset="55%" stop-color="#ff5722"/>
+      <stop offset="100%" stop-color="#ff9530"/>
+    </linearGradient>
+    <linearGradient id="vt-face" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#060606"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="12" fill="url(#vt-face)"/>
+  <rect x="5" y="5" width="38" height="38" rx="9" fill="none" stroke="url(#vt-accent)" stroke-width="1.25" opacity="0.85"/>
+  <g fill="url(#vt-accent)">
+    <rect x="12" y="22" rx="2" width="5" height="14"/>
+    <rect x="21" y="16" rx="2" width="5" height="20"/>
+    <rect x="30" y="10" rx="2" width="5" height="26"/>
+  </g>
+</svg>
